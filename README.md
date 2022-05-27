@@ -1,5 +1,5 @@
 # Wanda
-## A very experimental Python and SDL2 game framework.
+A very experimental Python and SDL2 game framework.
 
 Wanda is an intended reference to Monty Python's movie, *A Fish Called Wanda*.
 
