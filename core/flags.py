@@ -1,0 +1,5 @@
+import sdl2
+
+# Window flags
+
+WINDOW_BORDERLESS = sdl2.SDL_WINDOW_BORDERLESS
