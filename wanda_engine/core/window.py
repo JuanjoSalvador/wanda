@@ -8,6 +8,7 @@ class Window:
     def __init__(self, title, width, height, *args, **kwargs) -> None:
         sdl2.ext.init()
         self.window = sdl2.ext.Window(title, size=(width, height), **kwargs)
+        sdl2.SDL_RaiseWindow(self.window.window)
 
     def show(self):
         self.window.show()
