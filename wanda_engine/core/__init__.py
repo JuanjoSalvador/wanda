@@ -1,1 +1,1 @@
-from .window import Window
+from .core import WandaGame

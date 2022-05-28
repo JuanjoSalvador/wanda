@@ -1,8 +1,9 @@
 from sys import flags
 import sdl2
+import sdl2.ext
 
 from wanda_engine.core.time import Clock
-from wanda_engine.core.graphics import Graphics
+from wanda_engine.graphics import Graphics
 
 import conf
 
@@ -51,7 +52,8 @@ class WandaGame():
             self._update()
 
             # Get scene graphic changes and refresh the screen
+            self.graphics.renderer.clear()
             self._draw()
-            self.graphics.refresh_screen()
+            #self.graphics.present()
 
         return sdl2.ext.quit()
