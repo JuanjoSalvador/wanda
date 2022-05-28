@@ -6,9 +6,11 @@ class Graphics:
         self.factory = sdl2.ext.SpriteFactory(sdl2.ext.TEXTURE, renderer=self.renderer)
         self.spriterenderer = self.factory.create_sprite_render_system(window)
 
-    def refresh_screen(self):
-        self.renderer.clear()
+    def present(self):
         sdl2.render.SDL_RenderPresent(self.spriterenderer.sdlrenderer)
 
     def render_sprite(self, sprite):
-        return self.spriterenderer.render(sprites=sprite)
+        self.spriterenderer.render(sprites=sprite)
+
+    def load_sprite(self, sprite):
+        return self.factory.from_image(sprite)
