@@ -32,10 +32,6 @@ def is_key_down(keypressed):
 
 def is_key_up(keypressed):
     if KeyboardController.event == sdl2.SDL_KEYUP:        
-        return KeyboardController.key == keypressed
-
-    # if event.type == sdl2.SDL_KEYDOWN:
-    #     if event.key.keysym.sym == sdl2.SDLK_UP:
-    #     elif event.key.keysym.sym == sdl2.SDLK_DOWN:
-    # elif event.type == sdl2.SDL_KEYUP:
-    #     if event.key.keysym.sym in (sdl2.SDLK_UP, sdl2.SDLK_DOWN):
+        is_key_released = KeyboardController.key == keypressed
+        KeyboardController.key = False
+        return is_key_released
