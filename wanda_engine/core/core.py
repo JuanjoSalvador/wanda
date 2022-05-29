@@ -5,6 +5,8 @@ import sdl2.ext
 from wanda_engine.core.time import Clock
 from wanda_engine.graphics import Graphics
 
+from wanda_engine.input.keyboard import KeyboardController
+
 import conf
 
 class WandaGame():
@@ -19,9 +21,9 @@ class WandaGame():
         self.window = sdl2.ext.Window(self.title, size=(self.w_width, self.w_height), flags=self.flags)
         sdl2.SDL_RaiseWindow(self.window.window)
         self.window.show()
+        self.graphics = Graphics(self.window)
 
         self.clock = Clock()
-        self.graphics = Graphics(self.window)
 
         self.running = True
 
@@ -42,6 +44,9 @@ class WandaGame():
             if event.type == sdl2.SDL_QUIT:
                 self.running = False
                 break
+
+            if event.type in (sdl2.SDL_KEYDOWN, sdl2.SDL_KEYUP):
+                KeyboardController.keyboard_input_listener(event)
 
     def run(self):
         self._load()
