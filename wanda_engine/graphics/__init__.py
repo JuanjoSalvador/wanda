@@ -1,2 +1,2 @@
 from .graphics import Graphics
-from .graphics import Resources
+from .resources import Resources
