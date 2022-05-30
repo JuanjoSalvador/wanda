@@ -26,12 +26,14 @@ class KeyboardController:
         except KeyError:
             pass
 
-def is_key_down(keypressed):
-    if KeyboardController.event == sdl2.SDL_KEYDOWN:      
-        return KeyboardController.key == keypressed
+    @staticmethod
+    def is_key_down(keypressed):
+        if KeyboardController.event == sdl2.SDL_KEYDOWN:      
+            return KeyboardController.key == keypressed
 
-def is_key_up(keypressed):
-    if KeyboardController.event == sdl2.SDL_KEYUP:        
-        is_key_released = KeyboardController.key == keypressed
-        KeyboardController.key = False
-        return is_key_released
+    @staticmethod
+    def is_key_up(keypressed):
+        if KeyboardController.event == sdl2.SDL_KEYUP:        
+            is_key_released = KeyboardController.key == keypressed
+            KeyboardController.key = False
+            return is_key_released
